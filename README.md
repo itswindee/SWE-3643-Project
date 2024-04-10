@@ -1,6 +1,6 @@
 # SWE-3643-Project
 
-I will be building a web-based calculator app programmed in Java. This program will be tested in (still deciding).
+I will be building a web-based calculator app programmed in Python by using Flask which is an extensible web framework for Python. Flask provides tools, libraries, and patterns to help developers build web applications quickly and efficiently. This program will be tested in Pytest.
 
 ## Introduction:
 
