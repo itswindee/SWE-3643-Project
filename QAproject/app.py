@@ -32,11 +32,11 @@ def calculate():
     elif operation == 'factorial':
         result = math.factorial(num1)
     elif operation == 'sin':
-        result = math.sin(num1)
+        result = math.sin(math.radians(num1))
     elif operation == 'cos':
-        result = math.cos(num1)
+        result = math.cos(math.radians(num1))
     elif operation == 'tan':
-        result = math.tan(num1)
+        result = math.tan(math.radians(num1))
     elif operation == 'reciprocal':
         result = 1 / num1
     elif operation == 'clear':

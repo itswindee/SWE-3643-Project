@@ -34,7 +34,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Advanced Calculator</h1>
+        <h1>Calculator</h1>
         <div class="calculator-form">
             <label for="num1">Input A:</label>
             <input type="text" name="num1" id="num1" placeholder="Enter first number" required>
@@ -117,8 +117,8 @@
                 case 'power':
                     result = Math.pow(num1, num2);
                     break;
-                case 'log': /* need to look over this because it's not working properly like i wanted */
-                    result = Math.log(num1);
+                case 'log':
+                    result = Math.log(num1) / Math.log(num2);
                     break;
                 case 'root':
                     result = Math.round(Math.pow(num1, 1 / num2));
@@ -126,16 +126,18 @@
                 case 'factorial':
                     result = num1 < 0 ? -1 * factorial(-num1) : factorial(num1);
                     break;
-                /* need to look over what's wrong with sin, cos, and tan*/
                 case 'sin':
                     result = Math.sin(num1 * Math.PI / 180);
+                    result = Math.round(result * 1e8) / 1e8;
                     break;
                 case 'cos':
-                    result = Math.cos(num1);
+                    result = Math.cos(num1 * Math.PI / 180);
+                    result = Math.round(result * 1e8) / 1e8;
                     break;
                 case 'tan':
-                    result = Math.tan(num1);
-                    break;
+                   result = Math.tan(num1 * Math.PI / 180);
+                   result = Math.round(result * 1e8) / 1e8;
+                   break;
                 case 'reciprocal':
                     result = 1 / num1;
                     break;
