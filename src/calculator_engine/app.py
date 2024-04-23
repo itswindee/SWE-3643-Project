@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
 import math
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates')
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('web/index.html')
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
