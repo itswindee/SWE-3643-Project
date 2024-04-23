@@ -29,39 +29,59 @@
         .operator-button {
             width: 200px;
         }
+        .info-box {
+            background-color: #FFECD7;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .start-state {
+        background-color: #FFECD7;
+        color: #000000;
+        }
+
+        .error-state {
+         background-color: #B70F0A;
+         color: #FFFFFF;
+            }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Calculator</h1>
+        <div id="info-box" class="info-box">
+            Enter value(s) below and select an operation.
+        </div>
         <div class="calculator-form">
             <form id="calculator-form" action="/calculate" method="POST">
                 <label for="num1">Input A:</label>
-                <input type="text" name="num1" id="num1" placeholder="Enter first number" required>
+                <input type="text" name="num1" id="num1" placeholder="0" required>
                 <label for="num2">Input B:</label>
-                <input type="text" name="num2" id="num2" placeholder="Enter second number">
+                <input type="text" name="num2" id="num2" placeholder="0">
             </form>
         </div>
 
         <div class="operation-lists">
             <ul class="operation-list">
-                <h2>Input A and Input B:</h2>
-                <li><button class="operator-button" onclick="calculate('+')">Add</button></li>
-                <li><button class="operator-button" onclick="calculate('-')">Subtract</button></li>
-                <li><button class="operator-button" onclick="calculate('*')">Multiply</button></li>
-                <li><button class="operator-button" onclick="calculate('/')">Divide</button></li>
-                <li><button class="operator-button" onclick="calculate('equals')">Equals to</button></li>
-                <li><button class="operator-button" onclick="calculate('power')">Raise to</button></li>
-                <li><button class="operator-button" onclick="calculate('log')">Log of</button></li>
-                <li><button class="operator-button" onclick="calculate('root')">Root of</button></li>
+                <h2>A and B:</h2>
+                <li><button class="operator-button" onclick="calculate('+')">A + B</button></li>
+                <li><button class="operator-button" onclick="calculate('-')">A - B</button></li>
+                <li><button class="operator-button" onclick="calculate('*')">A * B</button></li>
+                <li><button class="operator-button" onclick="calculate('/')">A / B</button></li>
+                <li><button class="operator-button" onclick="calculate('equals')">A == B</button></li>
+                <li><button class="operator-button" onclick="calculate('power')">A ^ B</button></li>
+                <li><button class="operator-button" onclick="calculate('log')">A log B</button></li>
+                <li><button class="operator-button" onclick="calculate('root')">A root B</button></li>
             </ul>
             <ul class="operation-list">
-                <h2>Input A only:</h2>
-                <li><button class="operator-button" onclick="calculate('factorial')">Factorial of A</button></li>
-                <li><button class="operator-button" onclick="calculate('sin')">Sin of A</button></li>
-                <li><button class="operator-button" onclick="calculate('cos')">Cos of A</button></li>
-                <li><button class="operator-button" onclick="calculate('tan')">Tan of A</button></li>
-                <li><button class="operator-button" onclick="calculate('reciprocal')">Reciprocal of A</button></li>
+                <h2>A only:</h2>
+                <li><button class="operator-button" onclick="calculate('factorial')">A!</button></li>
+                <li><button class="operator-button" onclick="calculate('sin')">Sin A</button></li>
+                <li><button class="operator-button" onclick="calculate('cos')">Cos A</button></li>
+                <li><button class="operator-button" onclick="calculate('tan')">Tan A</button></li>
+                <li><button class="operator-button" onclick="calculate('reciprocal')">1 / A</button></li>
             </ul>
         </div>
 
@@ -73,34 +93,40 @@
         <div id="error" class="error-message"></div>
     </div>
 
+            }
     <script>
         function calculate(operation) {
-            var form = document.getElementById("calculator-form");
-            var formData = new FormData(form);
-            formData.append('operation', operation);
+    var form = document.getElementById("calculator-form");
+    var formData = new FormData(form);
+    formData.append('operation', operation);
 
-            fetch('/calculate', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('result').innerText = 'Result: ' + data;
-                document.getElementById('error').innerText = '';
-            })
-            .catch(error => {
-                document.getElementById('result').innerText = '';
-                document.getElementById('error').innerText = 'Error: ' + error;
-            });
-        }
+    fetch('/calculate', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        var resultText = formData.get('num1') + ' ' + operation + ' ' + formData.get('num2') + ' = ' + data;
+        document.getElementById('result').innerText = 'Result: ' + resultText;
+        document.getElementById('error').innerText = '';
+        document.getElementById('info-box').innerText = resultText; // Update info box with the calculation result
+    })
+    .catch(error => {
+        document.getElementById('result').innerText = '';
+        document.getElementById('error').innerText = 'Error: ' + error;
+    });
+}
 
-        function clearInputs() {
-            document.getElementById('num1').value = '';
-            document.getElementById('num2').value = '';
-            document.getElementById('result').innerText = '';
-            document.getElementById('error').innerText = '';
-        }
+function clearInputs() {
+    document.getElementById('num1').value = '';
+    document.getElementById('num2').value = '';
+    document.getElementById('result').innerText = '';
+    document.getElementById('error').innerText = '';
+    document.getElementById('info-box').innerText = 'Enter value(s) below and select an operation.';
+}
+
     </script>
+
 </body>
 </html>
 

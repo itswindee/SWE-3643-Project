@@ -11,33 +11,46 @@ def index():
 
 def perform_calculation(num1, num2, operation):
     result = None
+    # preq-ENGINE-3
     if operation == '+':
         result = num1 + num2
+    # preq-ENGINE-4
     elif operation == '-':
         result = num1 - num2
+    # preq-ENGINE-5
     elif operation == '*':
         result = num1 * num2
+    # preq-ENGINE-6
     elif operation == '/':
         if num2 == 0:
             result = 'Error: Division by zero'
         else:
             result = num1 / num2
+    # preq-ENGINE-7
     elif operation == 'equals':
         result = 1 if abs(num1 - num2) < 1e-9 else 0
+    # preq-ENGINE-8
     elif operation == 'power':
         result = num1 ** num2
+    # preq-ENGINE-9
     elif operation == 'log':
         result = math.log(num1) / math.log(num2)
+    # preq-ENGINE-10
     elif operation == 'root':
         result = num1 ** (1 / num2)
+    # preq-ENGINE-11
     elif operation == 'factorial':
         result = factorial(num1)
+    # preq-ENGINE-12
     elif operation == 'sin':
         result = round(math.sin(num1 * math.pi / 180), 8)
+    # preq-ENGINE-13
     elif operation == 'cos':
         result = round(math.cos(num1 * math.pi / 180), 8)
+    # preq-ENGINE-14
     elif operation == 'tan':
         result = round(math.tan(num1 * math.pi / 180), 8)
+    # preq-ENGINE-15
     elif operation == 'reciprocal':
         if num1 == 0:
             result = 'Error: Division by zero'
@@ -65,8 +78,6 @@ def calculate():
 
     result = perform_calculation(num1, num2, operation)
     return str(result)
-
-
 
 def factorial(num):
     if num < 0:
