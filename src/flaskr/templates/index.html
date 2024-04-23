@@ -3,6 +3,15 @@
 <head>
     <title>Calculator</title>
     <style>
+        .start-state {
+        background-color: #FFECD7;
+        color: #000000;
+        }
+
+        .error-state {
+         background-color: #B70F0A;
+         color: #FFFFFF;
+            }
         .container {
             text-align: center;
         }
@@ -59,22 +68,14 @@
             margin: 0 auto 20px;
             max-width: 520px;
         }
-        .start-state {
-        background-color: #FFECD7;
-        color: #000000;
-        }
 
-        .error-state {
-         background-color: #B70F0A;
-         color: #FFFFFF;
-            }
 
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Calculator</h1>
-        <div id="info-box" class="info-box">
+        <div id="info-box" class="info-box start-state">
             Enter value(s) below and select an operation.
         </div>
         <div class="calculator-form">
@@ -119,7 +120,7 @@
 
             }
     <script>
-        function calculate(operation) {
+    function calculate(operation) {
     var form = document.getElementById("calculator-form");
     var formData = new FormData(form);
     formData.append('operation', operation);
@@ -134,10 +135,13 @@
         document.getElementById('result').innerText = 'Result: ' + resultText;
         document.getElementById('error').innerText = '';
         document.getElementById('info-box').innerText = resultText; // Update info box with the calculation result
+        document.getElementById('info-box').classList.remove('error-state'); // Remove error state class if it was added
     })
     .catch(error => {
         document.getElementById('result').innerText = '';
         document.getElementById('error').innerText = 'Error: ' + error;
+        document.getElementById('info-box').innerText = 'Invalid input';
+        document.getElementById('info-box').classList.add('error-state'); // Add error state class
     });
 }
 
@@ -147,8 +151,8 @@ function clearInputs() {
     document.getElementById('result').innerText = '';
     document.getElementById('error').innerText = '';
     document.getElementById('info-box').innerText = 'Enter value(s) below and select an operation.';
+    document.getElementById('info-box').classList.remove('error-state'); // Remove error state class
 }
-
     </script>
 
 </body>
