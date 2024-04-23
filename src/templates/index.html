@@ -11,6 +11,24 @@
             text-align: left;
             margin-bottom: 20px;
         }
+        .section-text {
+         background-color: #EBEBEB;
+         color: #000000;
+            padding: 10px;
+        }
+        .clear-button {
+            width: 250px;
+            height: 30px;
+            background-color: #EBEBEB;
+            color: #000000;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        label {
+            font-size: 15px;
+            width: 150px;
+            height: 50px;
+        }
         .operation-lists {
             text-align: center;
         }
@@ -25,16 +43,21 @@
         .error-message {
             color: red;
         }
-
         .operator-button {
-            width: 200px;
+            width: 250px;
+            height: 30px;
+            background-color: #EBEBEB;
+            color: #000000;
+            margin-bottom: 10px;
+            font-size: 15px;
         }
         .info-box {
             background-color: #FFECD7;
             color: #000000;
             border: 1px solid #000000;
             padding: 10px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
+            max-width: 520px;
         }
         .start-state {
         background-color: #FFECD7;
@@ -65,7 +88,7 @@
 
         <div class="operation-lists">
             <ul class="operation-list">
-                <h2>A and B:</h2>
+                <h2 class="section-text">A and B</h2>
                 <li><button class="operator-button" onclick="calculate('+')">A + B</button></li>
                 <li><button class="operator-button" onclick="calculate('-')">A - B</button></li>
                 <li><button class="operator-button" onclick="calculate('*')">A * B</button></li>
@@ -76,7 +99,7 @@
                 <li><button class="operator-button" onclick="calculate('root')">A root B</button></li>
             </ul>
             <ul class="operation-list">
-                <h2>A only:</h2>
+                <h2 class="section-text">A only</h2>
                 <li><button class="operator-button" onclick="calculate('factorial')">A!</button></li>
                 <li><button class="operator-button" onclick="calculate('sin')">Sin A</button></li>
                 <li><button class="operator-button" onclick="calculate('cos')">Cos A</button></li>
@@ -86,7 +109,8 @@
         </div>
 
         <div class="calculator-form">
-            <button onclick="clearInputs()">Clear</button>
+            <button class="clear-button" onclick="clearInputs()">Clear</button>
+
         </div>
 
         <div id="result"></div>
