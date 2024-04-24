@@ -123,3 +123,8 @@ def test_reciprocal():
 # preq-UNIT-TEST-20
 def test_reciprocal_error():
     assert perform_calculation(0, None, 'reciprocal') == 'Error: Division by zero'
+
+
+
+
+
