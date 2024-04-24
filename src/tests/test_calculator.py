@@ -40,6 +40,7 @@ def test_log():
 # preq-UNIT-TEST-10
 def test_log_error_1():
     assert perform_calculation(0, 10, 'log') == 'Error: Invalid input'
+    assert perform_calculation(-1, 10, 'log') == 'Error: Invalid input'
 
 # preq-UNIT-TEST-11
 def test_log_error_2():
@@ -51,7 +52,8 @@ def test_root():
 
 # preq-UNIT-TEST-13
 def test_root_error():
-    assert perform_calculation(8, 0, 'root') == 'Error: Division by zero'
+    assert perform_calculation(0, 5, 'root') == 'Error: Invalid input'
+    assert perform_calculation(-1, 5, 'root') == 'Error: Invalid input'
 
 # preq-UNIT-TEST-14
 def test_factorial():

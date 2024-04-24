@@ -59,6 +59,7 @@ def perform_calculation(num1, num2, operation):
     else:
         result = 'Invalid operation'
 
+
     if isinstance(result, float) and result.is_integer():
         result = int(result)
 
@@ -76,7 +77,14 @@ def calculate():
     except ValueError:
         return 'Invalid input. Please enter valid numbers.'
 
-    result = perform_calculation(num1, num2, operation)
+    try:
+        result = perform_calculation(num1, num2, operation)
+    except ValueError:
+        if operation in ['log', 'root'] and (num1 <= 0 or num2 <= 0):
+            result = 'Error: Invalid input'
+        else:
+            result = 'Error: Calculation error'
+
     return str(result)
 
 def factorial(num):

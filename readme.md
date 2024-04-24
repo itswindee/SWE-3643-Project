@@ -22,30 +22,40 @@ I'm Emily, and I am the only team member of this project, as I am working alone.
 This application is currently being tested in Windows and upon completion, we will introduce this to Mac.
 
 To prepare your environment to execute this application:
-1. **Install the latest version of Python for your device.** Currently, this application is using Python 3.12.0.
+**Install the latest version of Python for your device.** Currently, this application is using Python 3.12.0.
 - [Windows](https://www.python.org/downloads/)
 - [macOs](https://www.python.org/downloads/macos/)
 <br><br>
-    (NOTE: macOs usually comes with Python pre-installed, but you can download the latest versio of Python using the link.)
 
-2. **Once you have Python installed, you can install Flask using 'pip' - Python's package manager.**
+(NOTE: macOs usually comes with Python pre-installed, but you can download the latest versio of Python using the link.)
 
-    Open a terminal or command prompt. Run the following command to install Flask:
-    ```
-        pip install Flask
-    ```
-    You can verify that Flask has installed properly by running this command to check its version:
-    ```
-        flask --version
-    ```
-    To view the Flask application, run the program. You should see a warning message similar to this:
 
-   ![alt text](QAproject/images/img.png)
+## Executing the Web Application
+This application is being tested using the JetBrains PyCharm IDEA. If you do not have PyCharm installed, here is the [link](https://www.jetbrains.com/pycharm/download/?section=windows) to the download: 
+
+Once you have [Python](https://www.python.org/downloads/) and PyCharm installed, you can install Flask using 'pip' - Python's package manager.
+
+   Open a terminal or command prompt. Run the following command to install Flask: 
+
+   ```
+      pip install Flask
+   ```
+
+   You can verify that Flask has installed properly by running this command to check its version:
+    
+   ```
+      flask --version
+   ```
+    
+   To view the Flask application, run the program. You should see a warning message similar to this:
+
+   ![alt text](images/img.png)
 
    Click on the URL shown and it will prompt a pop-up on your screen to view the Flask application.
 
+## Executing Unit Tests
 
-3. **Configuring Pytest for unit tests:**
+**Configuring Pytest for unit tests:**
 
     Install Pytest if you don't have it yet. Run the following command in your command line (terminal/console):
     ```
@@ -56,16 +66,9 @@ To prepare your environment to execute this application:
         $ pytest --version
     ```
 
-4. **Configuring Playwright for end-to-end testing:**
-
-
-## Executing the Web Application
-This application is being tested using the JetBrains PyCharm IDEA. If you do not have PyCharm installed, here is the [link](https://www.jetbrains.com/pycharm/download/?section=windows) to the download: 
-
-
-## Executing Unit Tests
-
 ## Executing Unit Test Coverage
+
+**Configuring Playwright for end-to-end testing:**
 
 ## Reviewing Unit Test Coverage
 

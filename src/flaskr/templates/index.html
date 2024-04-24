@@ -3,74 +3,71 @@
 <head>
     <title>Calculator</title>
     <style>
-        .start-state {
-        background-color: #FFECD7;
-        color: #000000;
-        }
-
-        .error-state {
-         background-color: #B70F0A;
-         color: #FFFFFF;
+            .info-box {
+                background-color: #FFECD7;
+                color: #000000;
+                border: 1px solid #000000;
+                padding: 10px;
+                margin: 0 auto 20px;
+                max-width: 520px;
             }
-        .container {
-            text-align: center;
-        }
-        .calculator-form {
-            display: inline-block;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        .section-text {
-         background-color: #EBEBEB;
-         color: #000000;
-            padding: 10px;
-        }
-        .clear-button {
-            width: 250px;
-            height: 30px;
-            background-color: #EBEBEB;
-            color: #000000;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        label {
-            font-size: 15px;
-            width: 150px;
-            height: 50px;
-        }
-        .operation-lists {
-            text-align: center;
-        }
-        .operation-list {
-            display: inline-block;
-            vertical-align: top;
-            margin-right: 20px;
-            padding: 0;
-            text-align: left;
-            list-style-type: none;
-        }
-        .error-message {
-            color: red;
-        }
-        .operator-button {
-            width: 250px;
-            height: 30px;
-            background-color: #EBEBEB;
-            color: #000000;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        .info-box {
+            .start-state {
             background-color: #FFECD7;
             color: #000000;
-            border: 1px solid #000000;
-            padding: 10px;
-            margin: 0 auto 20px;
-            max-width: 520px;
-        }
-
-
-    </style>
+            }
+            .error-state {
+             background-color: #B70F0A;
+             color: #FFFFFF;
+                }
+            .container {
+                text-align: center;
+            }
+            .calculator-form {
+                display: inline-block;
+                text-align: left;
+                margin-bottom: 20px;
+            }
+            .section-text {
+             background-color: #EBEBEB;
+             color: #000000;
+                padding: 10px;
+            }
+            .clear-button {
+                width: 250px;
+                height: 30px;
+                background-color: #EBEBEB;
+                color: #000000;
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+            label {
+                font-size: 15px;
+                width: 150px;
+                height: 50px;
+            }
+            .operation-lists {
+                text-align: center;
+            }
+            .operation-list {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 20px;
+                padding: 0;
+                text-align: left;
+                list-style-type: none;
+            }
+            .error-message {
+                color: red;
+            }
+            .operator-button {
+                width: 250px;
+                height: 30px;
+                background-color: #EBEBEB;
+                color: #000000;
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+        </style>
 </head>
 <body>
     <div class="container">
@@ -117,10 +114,8 @@
         <div id="result"></div>
         <div id="error" class="error-message"></div>
     </div>
-
-            }
     <script>
-    function calculate(operation) {
+        function calculate(operation) {
     var form = document.getElementById("calculator-form");
     var formData = new FormData(form);
     formData.append('operation', operation);
@@ -131,30 +126,29 @@
     })
     .then(response => response.text())
     .then(data => {
-        var resultText = formData.get('num1') + ' ' + operation + ' ' + formData.get('num2') + ' = ' + data;
+    var resultText = formData.get('num1') + ' ' + operation + ' ' + formData.get('num2') + ' = ' + data;
         document.getElementById('result').innerText = 'Result: ' + resultText;
         document.getElementById('error').innerText = '';
-        document.getElementById('info-box').innerText = resultText; // Update info box with the calculation result
-        document.getElementById('info-box').classList.remove('error-state'); // Remove error state class if it was added
-    })
+        document.getElementById('info-box').innerText = resultText;
+        document.getElementById('info-box').className = 'info-box start-state';
+})
     .catch(error => {
         document.getElementById('result').innerText = '';
         document.getElementById('error').innerText = 'Error: ' + error;
         document.getElementById('info-box').innerText = 'Invalid input';
-        document.getElementById('info-box').classList.add('error-state'); // Add error state class
+        document.getElementById('info-box').className = 'info-box error-state';
     });
 }
 
-function clearInputs() {
-    document.getElementById('num1').value = '';
-    document.getElementById('num2').value = '';
-    document.getElementById('result').innerText = '';
-    document.getElementById('error').innerText = '';
-    document.getElementById('info-box').innerText = 'Enter value(s) below and select an operation.';
-    document.getElementById('info-box').classList.remove('error-state'); // Remove error state class
-}
+    function clearInputs() {
+        document.getElementById('num1').value = '';
+        document.getElementById('num2').value = '';
+        document.getElementById('result').innerText = '';
+        document.getElementById('error').innerText = '';
+        document.getElementById('info-box').innerText = 'Enter value(s) below and select an operation.';
+        document.getElementById('info-box').classList.remove('error-state');
+    }
     </script>
-
 </body>
 </html>
 
