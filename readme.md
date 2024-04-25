@@ -46,7 +46,7 @@ This application is being tested using the JetBrains PyCharm IDE. If you don't h
       flask --version
    ```
     
-   To view the Flask application, run the program. You should see a warning message similar to this:
+   To view the Flask application, run the program on PyCharm. You should see a warning message similar to this:
 
    ![alt text](images/img.png)
 
@@ -68,19 +68,6 @@ Make sure you have the correct version installed.
 
 If you run into any issues getting Pytest to install properly, here is a [link](https://www.youtube.com/watch?v=yA5jqNCCOLE&t=499s) to a tutorial that I found very helpful.
 
-<br>
-
-**Configuring Playwright for end-to-end testing:**
-
-Run the following command in your command line (terminal/console) to install Playwright:
-   
-```
-   pip install playwright
-```
-
-```
-   playwright install
-```
 
 ## Executing Unit Test Coverage
 To execute the unit test coverage:
@@ -106,14 +93,30 @@ If you want to see the test coverage in HTML format, you can run the following c
    pytest --cov-report html
 ```
 Then, you can open the HTML file in your browser to view the test coverage in a more detailed format.
+
 ![alt text](images/img5.png)
+
 ![alt text](images/img4.png)
 
 ## Executing End-to-End Tests
+**Configuring Playwright for end-to-end testing:**
+
 To execute the end-to-end tests:
-1. Run terminal/command prompt and change the directory to the project folder.
+
+Run terminal/command prompt and change the directory to the project folder.
 ```
    cd path/to/project
+```
+
+
+Run the following command in your command line (terminal/console) to install Playwright:
+   
+```
+   pip install playwright
+```
+
+```
+   playwright install
 ```
 
 ## Final Video Presentation
