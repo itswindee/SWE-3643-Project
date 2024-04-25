@@ -1,14 +1,39 @@
+import subprocess
+
 import pytest
-from src.calculator_engine.calculator import perform_calculation, factorial
+from src.calculator_engine.calculator import perform_calculation, app
 
 
+@pytest.fixture
+def client():
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
+def test_calculate_valid_input(client):
+    response = client.post('/calculate', data=dict(num1='2', operation='+', num2='3'))
+    assert response.status_code == 200
+    assert b"5" in response.data
+
+def test_calculate_invalid_input(client):
+    response = client.post('/calculate', data=dict(num1='a', operation='+', num2='3'))
+    assert response.status_code == 200
+    assert b"Invalid input. Please enter valid numbers." in response.data
+
+def test_calculate_invalid_operation(client):
+    response = client.post('/calculate', data=dict(num1='2', operation='invalid', num2='3'))
+    assert response.status_code == 200
+    assert b"Invalid operation" in response.data
+
+def test_calculate_error(client):
+    response = client.post('/calculate', data=dict(num1='2', operation='log', num2='0'))
+    assert response.status_code == 200
+    assert b"Error: Invalid input" in response.data
 
 
 def test_invalid_operation():
     result = perform_calculation(2, 3, 'invalid')
     assert result == 'Invalid operation'
-
 
 
  # preq-UNIT-TEST-2

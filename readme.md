@@ -119,6 +119,20 @@ Run the following command in your command line (terminal/console) to install Pla
    playwright install
 ```
 
+After you have installed Playwright, make sure you run the Flask application **first**. The link in the test cases will not work if the Flask application is not running in the background already. After you made sure it's running, you can run the playwright test cases.
+
+You can run the following command in the terminal to see the coverage report:
+```
+   coverage report -m
+```
+If you would like an HTML file, you can run the following command:
+
+```
+   coverage html
+```
+Then, you can open the HTML file in your browser to view the coverage report in a more detailed format.
+![alt text](images/img6.png)
+
 ## Final Video Presentation
 [Link to the final video presentation.]() NOT AVAILABLE YET
 
