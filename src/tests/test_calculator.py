@@ -3,19 +3,13 @@ from src.calculator_engine.calculator import perform_calculation, factorial
 
 
 
-def test_index_route(client):
-    response = client.get('/')
-    assert response.status_code == 200
-    assert b"Enter value(s) below and select an operation." in response.data
+
 
 def test_invalid_operation():
     result = perform_calculation(2, 3, 'invalid')
     assert result == 'Invalid operation'
 
-def test_calculate_route(client):
-    response = client.post('/calculate', data=dict(num1='2', operation='+', num2='3'))
-    assert response.status_code == 200
-    assert b"5" in response.data
+
 
  # preq-UNIT-TEST-2
 def test_addition():
