@@ -135,5 +135,3 @@ Then, you can open the HTML file in your browser to view the coverage report in 
 
 ## Final Video Presentation
 [Link to the final presentation video.](https://youtu.be/Jd8iBBYqcEA)
-
-## Static Analysis
