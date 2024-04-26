@@ -12,7 +12,7 @@ This project is working on a web-based calculator app programmed in Python by us
 - [Reviewing Unit Test Coverage](#reviewing-unit-test-coverage)
 - [Executing End-to-End Tests](#executing-end-to-end-tests)
 - [Final Video Presentation](#final-video-presentation)
-- **Extra Credits:** [Static Analysis](#static-analysis) (only include this if i do this)
+
 
 ## Team Members:
 I'm [Emily Zhu](https://github.com/itswindee), and I am the only team member of this project. :)
@@ -134,6 +134,6 @@ Then, you can open the HTML file in your browser to view the coverage report in 
 ![alt text](images/img6.png)
 
 ## Final Video Presentation
-[Link to the final video presentation.]() NOT AVAILABLE YET
+[Link to the final presentation video.](https://youtu.be/Jd8iBBYqcEA)
 
 ## Static Analysis
